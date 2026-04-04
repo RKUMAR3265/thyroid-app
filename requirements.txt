@@ -3,7 +3,7 @@ gunicorn
 numpy
 pandas
 scikit-learn
-keras
+tensorflow-cpu==2.13.0
 matplotlib
 seaborn
 pillow
