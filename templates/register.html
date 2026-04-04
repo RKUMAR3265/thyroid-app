@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patient Registration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="form-box">
+
+    <h2>Patient Registration</h2>
+
+    <form action="/predict" method="POST" enctype="multipart/form-data">
+
+        <!-- NAME -->
+        <input type="text" name="name" placeholder="Patient Name" required>
+
+        <!-- AGE -->
+        <input type="number" name="age" placeholder="Age (0-120)" required>
+
+        <!-- SEX -->
+        <select name="sex">
+            <option value="1">Male</option>
+            <option value="0">Female</option>
+        </select>
+
+        <!-- MEDICAL INPUTS -->
+        <input type="number" step="any" name="tsh" placeholder="TSH (mIU/L)">
+        <input type="number" step="any" name="t3" placeholder="T3 (ng/dL)">
+        <input type="number" step="any" name="tt4" placeholder="TT4 (µg/dL)">
+        <input type="number" step="any" name="t4u" placeholder="T4U">
+        <input type="number" step="any" name="fti" placeholder="FTI">
+
+        <!-- FILE UPLOAD -->
+        <div class="upload-box" onclick="document.getElementById('file').click()">
+            📁 Drag & Drop Image or Click
+            <input type="file" id="file" name="image" hidden required>
+        </div>
+
+        <!-- BUTTONS -->
+        <button type="button" onclick="fillDemo()">Auto Fill Demo</button>
+        <button type="submit">Predict</button>
+
+    </form>
+
+</div>
+
+<script>
+function fillDemo() {
+    document.getElementsByName("name")[0].value = "Aryan Kumar Singh";
+    document.getElementsByName("age")[0].value = 45;
+    document.getElementsByName("sex")[0].value = 1;
+
+    document.getElementsByName("tsh")[0].value = 2.5;
+    document.getElementsByName("t3")[0].value = 120;
+    document.getElementsByName("tt4")[0].value = 8.5;
+    document.getElementsByName("t4u")[0].value = 1.2;
+    document.getElementsByName("fti")[0].value = 110;
+}
+</script>
+
+</body>
+</html>
