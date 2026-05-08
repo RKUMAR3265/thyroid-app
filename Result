@@ -1,9 +1,9 @@
-Detailed Results and Analysis
+## Detailed Results and Analysis
 
-Dataset Information
+### Dataset Information
 
 | Dataset Type | Size |
-|--------------|------|
+|---|---|
 | Ultrasound Image Dataset | 5,000 Images |
 | Clinical Records | 5,000 Patient Entries |
 | Benign Cases | 2,650 |
@@ -16,14 +16,14 @@ The dataset was divided into:
 
 ---
 
-1. CNN Image Classification Results
+## 1. CNN Image Classification Results
 
 The CNN model was trained using thyroid ultrasound images resized to 224 × 224 pixels.
 
-Training Performance
+### Training Performance
 
 | Epoch | Training Accuracy | Validation Accuracy | Loss |
-|------|-------------------|--------------------|------|
+|---|---|---|---|
 | 5 | 82.4% | 80.1% | 0.52 |
 | 10 | 89.7% | 87.5% | 0.31 |
 | 15 | 93.5% | 91.6% | 0.18 |
@@ -35,10 +35,10 @@ The CNN model successfully extracted:
 - Nodule boundary characteristics
 - Echogenicity variations
 
-CNN Evaluation Metrics
+### CNN Evaluation Metrics
 
 | Metric | Value |
-|--------|--------|
+|---|---|
 | Accuracy | 94.1% |
 | Precision | 93.5% |
 | Recall | 92.8% |
@@ -47,7 +47,7 @@ CNN Evaluation Metrics
 
 ---
 
-2. Clinical Data Prediction Results
+## 2. Clinical Data Prediction Results
 
 The Random Forest model analyzed:
 - TSH
@@ -58,20 +58,20 @@ The Random Forest model analyzed:
 - Age
 - Gender
 
-Clinical Model Metrics
+### Clinical Model Metrics
 
 | Metric | Value |
-|--------|--------|
+|---|---|
 | Accuracy | 92.8% |
 | Precision | 91.5% |
 | Recall | 90.7% |
 | F1-Score | 91.1% |
 | ROC-AUC | 93.4% |
 
-Feature Importance Analysis
+### Feature Importance Analysis
 
 | Feature | Importance Score |
-|---------|------------------|
+|---|---|
 | TSH | 0.31 |
 | TT4 | 0.22 |
 | FTI | 0.16 |
@@ -85,10 +85,10 @@ The analysis showed that:
 - Combining biomarkers improved prediction reliability.
 
 ---
-3. Multimodal Fusion Results
+
+## 3. Multimodal Fusion Results
 
 Both models generated probability scores:
-
 - Image Probability → Pimg
 - Clinical Probability → Pclin
 
@@ -98,20 +98,21 @@ The final probability was calculated using:
 Pfinal = 0.4 × Pimg + 0.6 × Pclin
 ```
 
-Example Prediction
+### Example Prediction
 
-Image Model Output
+#### Image Model Output
 
 ```math
 Pimg = 0.485
 ```
 
-Clinical Model Output
+#### Clinical Model Output
 
 ```math
 Pclin = 0.59
 ```
-Final Fusion Calculation
+
+### Final Fusion Calculation
 
 ```math
 Pfinal = (0.4 × 0.485) + (0.6 × 0.59)
@@ -125,23 +126,23 @@ Pfinal = 0.194 + 0.354
 Pfinal = 0.548
 ```
 
-Final Risk Classification
+### Final Risk Classification
 
 | Final Probability | Risk Level |
-|------------------|------------|
+|---|---|
 | 0.548 | Medium Risk |
 
 ---
 
-4. Comparative Analysis
+## 4. Comparative Analysis
 
 | Model | Accuracy |
-|------|-----------|
+|---|---|
 | CNN Only | 94.1% |
 | Clinical Model Only | 92.8% |
 | Multimodal Fusion Model | 94.3% |
 
-Observations
+### Observations
 
 - The multimodal fusion model achieved the highest overall accuracy.
 - Combining image and clinical data reduced false positives and false negatives.
@@ -149,14 +150,15 @@ Observations
 - CNN improved prediction by capturing hidden visual patterns.
 
 ---
-5. Confusion Matrix Analysis
+
+## 5. Confusion Matrix Analysis
 
 | Actual / Predicted | Benign | Malignant |
-|-------------------|---------|-----------|
+|---|---|---|
 | Benign | 241 | 14 |
 | Malignant | 17 | 228 |
 
-Interpretation
+### Interpretation
 
 - True Positives (TP) = 228
 - True Negatives (TN) = 241
@@ -167,10 +169,10 @@ The low number of false predictions indicates strong diagnostic performance.
 
 ---
 
-6. System Performance
+## 6. System Performance
 
 | Parameter | Value |
-|-----------|-------|
+|---|---|
 | Average Prediction Time | 2.1 sec |
 | Web Response Time | 1.4 sec |
 | Model Size | 136 MB |
@@ -178,10 +180,10 @@ The low number of false predictions indicates strong diagnostic performance.
 | Framework | Flask |
 
 ---
-7. Overall Outcome
+
+## 7. Overall Outcome
 
 The proposed AI-powered multimodal thyroid cancer diagnosis system achieved:
-
 - High diagnostic accuracy
 - Reliable risk prediction
 - Reduced dependency on manual interpretation
