@@ -1,1 +1,13 @@
+## Results
 
+- Achieved an overall accuracy of 94.3% in thyroid cancer risk prediction.
+- Successfully combined ultrasound image analysis and clinical data using a multimodal AI approach.
+- CNN model effectively extracted image-based features from thyroid ultrasound scans.
+- Random Forest model accurately analyzed clinical parameters such as TSH, T3, and T4.
+- Weighted fusion technique improved prediction reliability and reduced diagnostic variability.
+- The system classified patients into:
+  - Low Risk
+  - Medium Risk
+  - High Risk
+- Developed a user-friendly web interface for patient registration, prediction, and report generation.
+- The proposed system supports early diagnosis and assists doctors in clinical decision-making.
